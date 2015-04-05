@@ -2,7 +2,7 @@ if OBJECT_ID('distribution') is not null
 	drop table dbo.distribution;
 	
 create table distribution(
-	distId int
+	distId int identity(1,1)
 	,distName varchar(200)
 	,distDesc nvarchar(2000)
 	,contact nvarchar(200)
@@ -14,7 +14,7 @@ if OBJECT_ID('device') is not null
 	drop table dbo.device;
 	
 create table dbo.device(
-	devId int
+	devId int identity(1,1)
 	,devName nvarchar(200)
 	,addressCode nvarchar(200)
 	,current_max decimal(5,2)
@@ -71,5 +71,28 @@ create table dbo.deviceMonitor(
 	,switchValue int
 	);
 	
-alter table dbo.Users add maxDevices int
+alter table dbo.Users add maxDevices int;
+
+if OBJECT_ID('process') is not null
+	drop table dbo.process
 	
+create table dbo.process(
+		processId int
+		,processDesc nvarchar(2000)
+		,constraint PK_process primary key(processId)
+	)	;
+
+if OBJECT_ID('transactionLog') is not null
+	drop table dbo.transactionLog;
+	
+create table dbo.transactionLog(
+	logId bigint identity(1,1)
+	,processId int
+	,userId int --user do the operation
+	,logdate datetime
+	,devAddressCode nvarchar(200) --for device operation only
+	,constraint PK_logId primary key(logId)
+	,constraint FK_transactionLog_process foreign key(processId) references dbo.process(processId)
+	);
+
+
