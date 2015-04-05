@@ -71,3 +71,5 @@ create table dbo.deviceMonitor(
 	,switchValue int
 	);
 	
+alter table dbo.Users add maxDevices int
+	
