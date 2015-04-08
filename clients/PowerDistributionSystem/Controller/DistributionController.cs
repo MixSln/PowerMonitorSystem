@@ -44,6 +44,32 @@ namespace PowerDistributionSystem.Controller
             return dist;
         }
 
+        public IList<Distribution> GetDistributionList()
+        {
+            Distribution dist = new Distribution();
+            IList<Distribution> distList = new List<Distribution>();
+            DbCommand cmd = db.GetSqlStringCommand(@"SELECT [distId],[distName],[nickName],[distAddress],[distDesc],[contact_primary],[phoneNumber_primary],[contact_bak1]
+        ,[phoneNumber_bak1],[contact_bak2],[phoneNumber_bak2] FROM [dbo].[distribution] ");
+            IDataReader r = db.ExecuteReader(cmd);
+            while (r.Read())
+            {
+                dist.DistId = int.Parse(r[0].ToString());
+                dist.DistName = r[1].ToString();
+                dist.NickName = r[2].ToString();
+                dist.DistAddress = r[3].ToString();
+                dist.DistDesc = r[4].ToString();
+                dist.Contact_primary = r[5].ToString();
+                dist.PhoneNumber_primary = r[6].ToString();
+                dist.Contact_bak1 = r[7].ToString();
+                dist.PhoneNumber_bak1 = r[8].ToString();
+                dist.Contact_bak2 = r[9].ToString();
+                dist.PhoneNumber_bak2 = r[10].ToString();
+
+                distList.Add(dist);
+            }
+            return distList;
+        }
+
         public bool AddDistribution(Distribution dist)
         {
             bool result = true;

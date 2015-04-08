@@ -22,10 +22,11 @@ namespace PowerDistributionSystem
         public DistributionManage()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
 
             DatabaseProviderFactory factory = new DatabaseProviderFactory();
             db = factory.Create("PowerMonitor") as SqlDatabase;
+            
         }
 
         public static SqlDatabase db = null;
@@ -39,5 +40,19 @@ namespace PowerDistributionSystem
             dc.AddDistribution(dist);
 
         }
+
+        private void DistributionManage_Load(object sender, EventArgs e)
+        {
+            FillDistributionList();
+        }
+
+        private void FillDistributionList()
+        {
+            DistributionController dc = new DistributionController(db);
+
+            this.dgDistribution.DataSource = dc.GetDistributionList();
+            
+        }
+
     }
 }
