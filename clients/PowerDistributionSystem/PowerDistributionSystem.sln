@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerDistributionSystem", "PowerDistributionSystem\PowerDistributionSystem.csproj", "{3EC8EB93-895C-4AF6-A0CF-722577C18C05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{E1F9767A-ACAF-40F7-A5FB-F9C8E1B60A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{97201BDE-39F8-408E-946B-838135397447}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EC8EB93-895C-4AF6-A0CF-722577C18C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC8EB93-895C-4AF6-A0CF-722577C18C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC8EB93-895C-4AF6-A0CF-722577C18C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC8EB93-895C-4AF6-A0CF-722577C18C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F9767A-ACAF-40F7-A5FB-F9C8E1B60A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F9767A-ACAF-40F7-A5FB-F9C8E1B60A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F9767A-ACAF-40F7-A5FB-F9C8E1B60A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F9767A-ACAF-40F7-A5FB-F9C8E1B60A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97201BDE-39F8-408E-946B-838135397447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97201BDE-39F8-408E-946B-838135397447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97201BDE-39F8-408E-946B-838135397447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97201BDE-39F8-408E-946B-838135397447}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
