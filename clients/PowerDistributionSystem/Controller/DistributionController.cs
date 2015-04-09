@@ -74,7 +74,7 @@ namespace PowerDistributionSystem.Controller
         {
             bool result = true;
 
-            DbCommand cmd = db.GetSqlStringCommand(@"INSERT INTO [PowerMonitor].[dbo].[distribution]([distName],[nickName],[distAddress],[distDesc]
+            DbCommand cmd = db.GetSqlStringCommand(@"INSERT INTO [dbo].[distribution]([distName],[nickName],[distAddress],[distDesc]
                 ,[contact_primary],[phoneNumber_primary],[contact_bak1],[phoneNumber_bak1],[contact_bak2],[phoneNumber_bak2])
                 VALUES(@distName,@nickName, @distAddress,@distDesc,@contact_primary,@phoneNumber_primary
                     ,@contact_bak1,@phoneNumber_bak1,@contact_bak2,@phoneNumber_bak2) ");
@@ -89,6 +89,32 @@ namespace PowerDistributionSystem.Controller
             db.AddInParameter(cmd, "@phoneNumber_bak1", DbType.String, dist.PhoneNumber_bak1);
             db.AddInParameter(cmd, "@contact_bak2", DbType.String, dist.Contact_bak2);
             db.AddInParameter(cmd, "@phoneNumber_bak2", DbType.String, dist.PhoneNumber_bak2);
+
+            db.ExecuteNonQuery(cmd);
+
+            return result;
+        }
+
+        public bool SaveDistribution(Distribution dist)
+        {
+            bool result = true;
+
+            DbCommand cmd = db.GetSqlStringCommand(@"update [dbo].[distribution] set [distName]=@distName,[nickName]=@nickName
+                ,[distAddress]=@distAddress,[distDesc]=@distDesc,[contact_primary]=@contact_primary,[phoneNumber_primary]=@phoneNumber_primary
+                ,[contact_bak1]=@contact_bak1,[phoneNumber_bak1]=@phoneNumber_bak1,[contact_bak2]=@contact_bak2,[phoneNumber_bak2]=@phoneNumber_bak2 
+                Where distId = @distId");
+
+            db.AddInParameter(cmd, "@distName", DbType.String, dist.DistName);
+            db.AddInParameter(cmd, "@nickName", DbType.String, dist.NickName);
+            db.AddInParameter(cmd, "@distAddress", DbType.String, dist.DistAddress);
+            db.AddInParameter(cmd, "@distDesc", DbType.String, dist.DistDesc);
+            db.AddInParameter(cmd, "@contact_primary", DbType.String, dist.Contact_primary);
+            db.AddInParameter(cmd, "@phoneNumber_primary", DbType.String, dist.PhoneNumber_primary);
+            db.AddInParameter(cmd, "@contact_bak1", DbType.String, dist.Contact_bak1);
+            db.AddInParameter(cmd, "@phoneNumber_bak1", DbType.String, dist.PhoneNumber_bak1);
+            db.AddInParameter(cmd, "@contact_bak2", DbType.String, dist.Contact_bak2);
+            db.AddInParameter(cmd, "@phoneNumber_bak2", DbType.String, dist.PhoneNumber_bak2);
+            db.AddInParameter(cmd, "@distId", DbType.Int32, dist.DistId);
 
             db.ExecuteNonQuery(cmd);
 

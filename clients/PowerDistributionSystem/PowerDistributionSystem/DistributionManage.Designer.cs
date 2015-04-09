@@ -30,7 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgDistribution = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menu_save = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_New = new System.Windows.Forms.ToolStripMenuItem();
             this.DistId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DistName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +45,6 @@
             this.Contact_bak2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNumber_bak2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DistDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menu_save = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_New = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgDistribution)).BeginInit();
             this.dgMenu.SuspendLayout();
             this.SuspendLayout();
@@ -54,11 +53,9 @@
             // 
             this.dgDistribution.AllowUserToDeleteRows = false;
             this.dgDistribution.AllowUserToOrderColumns = true;
-            this.dgDistribution.AllowUserToResizeRows = false;
             this.dgDistribution.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgDistribution.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDistribution.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
             this.DistId,
             this.DistName,
             this.Column1,
@@ -74,14 +71,38 @@
             this.dgDistribution.Location = new System.Drawing.Point(2, 12);
             this.dgDistribution.MultiSelect = false;
             this.dgDistribution.Name = "dgDistribution";
-            this.dgDistribution.Size = new System.Drawing.Size(927, 460);
+            this.dgDistribution.Size = new System.Drawing.Size(820, 460);
             this.dgDistribution.TabIndex = 0;
             // 
-            // Column2
+            // dgMenu
             // 
-            this.Column2.HeaderText = "";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 21;
+            this.dgMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_save,
+            this.menu_delete,
+            this.menu_New});
+            this.dgMenu.Name = "dgMenu";
+            this.dgMenu.Size = new System.Drawing.Size(153, 92);
+            // 
+            // menu_save
+            // 
+            this.menu_save.Name = "menu_save";
+            this.menu_save.Size = new System.Drawing.Size(152, 22);
+            this.menu_save.Text = "保存";
+            this.menu_save.Click += new System.EventHandler(this.menu_save_Click);
+            // 
+            // menu_delete
+            // 
+            this.menu_delete.Name = "menu_delete";
+            this.menu_delete.Size = new System.Drawing.Size(152, 22);
+            this.menu_delete.Text = "删除";
+            this.menu_delete.Click += new System.EventHandler(this.menu_delete_Click);
+            // 
+            // menu_New
+            // 
+            this.menu_New.Name = "menu_New";
+            this.menu_New.Size = new System.Drawing.Size(152, 22);
+            this.menu_New.Text = "新建";
+            this.menu_New.Click += new System.EventHandler(this.menu_New_Click);
             // 
             // DistId
             // 
@@ -161,33 +182,6 @@
             this.DistDesc.Name = "DistDesc";
             this.DistDesc.Width = 52;
             // 
-            // dgMenu
-            // 
-            this.dgMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menu_save,
-            this.menu_delete,
-            this.menu_New});
-            this.dgMenu.Name = "dgMenu";
-            this.dgMenu.Size = new System.Drawing.Size(99, 70);
-            // 
-            // menu_save
-            // 
-            this.menu_save.Name = "menu_save";
-            this.menu_save.Size = new System.Drawing.Size(152, 22);
-            this.menu_save.Text = "保存";
-            // 
-            // menu_delete
-            // 
-            this.menu_delete.Name = "menu_delete";
-            this.menu_delete.Size = new System.Drawing.Size(152, 22);
-            this.menu_delete.Text = "删除";
-            // 
-            // menu_New
-            // 
-            this.menu_New.Name = "menu_New";
-            this.menu_New.Size = new System.Drawing.Size(152, 22);
-            this.menu_New.Text = "新建";
-            // 
             // DistributionManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,7 +200,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgDistribution;
-        private System.Windows.Forms.DataGridViewButtonColumn Column2;
+        private System.Windows.Forms.ContextMenuStrip dgMenu;
+        private System.Windows.Forms.ToolStripMenuItem menu_save;
+        private System.Windows.Forms.ToolStripMenuItem menu_delete;
+        private System.Windows.Forms.ToolStripMenuItem menu_New;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistId;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -218,10 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Contact_bak2;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber_bak2;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistDesc;
-        private System.Windows.Forms.ContextMenuStrip dgMenu;
-        private System.Windows.Forms.ToolStripMenuItem menu_save;
-        private System.Windows.Forms.ToolStripMenuItem menu_delete;
-        private System.Windows.Forms.ToolStripMenuItem menu_New;
 
     }
 }

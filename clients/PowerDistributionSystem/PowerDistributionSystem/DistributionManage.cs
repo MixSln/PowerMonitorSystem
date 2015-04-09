@@ -54,5 +54,31 @@ namespace PowerDistributionSystem
             
         }
 
+        private void menu_save_Click(object sender, EventArgs e)
+        {
+            if (dgDistribution.SelectedRows.Count == 0) {
+                MessageBox.Show("please select row!");
+                return;
+            }
+            DataGridViewRow selectedRow = dgDistribution.SelectedRows[0];
+            if (selectedRow.IsNewRow)
+            {
+            }
+            else {
+                Distribution dist = new Distribution();
+                dist.DistId = 
+            }
+        }
+
+        private void menu_New_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menu_delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
